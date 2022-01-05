@@ -2,16 +2,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.3;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol"; // contains the implementation of the ERC721 standard
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol"; // set up access control 
 
 
 contract MyNFT is ERC721, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() public ERC721("MyNFT", "NFT") {}
+    constructor() public ERC721("MyNFT", "NFT") {} // "MyNFT" : smart contract's name, "NFT" : its symbol
 
     function mintNFT(address recipient, string memory tokenURI)
         public onlyOwner
